@@ -1,9 +1,10 @@
 #!/usr/bin/python3
 """creates a pascal triangle"""
 
+
 def pascal_triangle(n):
     """creates a pascal triangle in list format"""
-    if n == 0:
+    if n <= 0:
         return []
     if n == 1:
         return [1]
