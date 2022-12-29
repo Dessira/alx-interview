@@ -7,7 +7,7 @@ def pascal_triangle(n):
     if n <= 0:
         return []
     if n == 1:
-        return [1]
+        return [[1]]
     base = [1]
     n = n - 1
     count = 0
@@ -19,7 +19,7 @@ def pascal_triangle(n):
             new_base.append(base[i] + base[i + 1])
         new_base.append(1)
         base = new_base
-        final += [new_base]
+        final.append(new_base)
         count += 1
         new_base = []
     return final
