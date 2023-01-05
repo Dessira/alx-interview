@@ -7,20 +7,25 @@ def canUnlockAll(boxes):
     # holder for keys
     holder = dict()
     count = 0
+    if len(boxes) == 0:
+        return False
 
     for box in boxes:
         if len(box) > 1:
             for i in range(len(box) - 1):
-                if box[i] not in holder:
-                    holder[i] = count
+                if box[i] not in holder and box[i] != i:
+                    holder[box[i]] = count
+                elif box[i] in holder and box[i] == i:
+                    holder[box[i]] = count
         else:
-            if len(box) == 1:
+            if len(box) == 1 and box[0] != count:
                 val = box[0]
                 holder[val] = count
         count += 1
-
-    for i in range(len(boxes) - 1):
-        if i in holder:
-            if holder[i] == holder.get(holder[i]):
-                return False
+    print(boxes)
+    print(holder)
+    for j in range(len(boxes) - 1):
+        if j > 0 and j not in holder:
+            print(j)
+            return False
     return True
