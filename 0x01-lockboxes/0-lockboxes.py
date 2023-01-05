@@ -22,10 +22,7 @@ def canUnlockAll(boxes):
                 val = box[0]
                 holder[val] = count
         count += 1
-    print(boxes)
-    print(holder)
     for j in range(len(boxes) - 1):
         if j > 0 and j not in holder:
-            print(j)
             return False
     return True
