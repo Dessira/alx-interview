@@ -1,8 +1,10 @@
 #!/usr/bin/python3
 """Defines Lockboxes function"""
 
+
 def canUnlockAll(boxes):
-    """Function checks if all boxes can be opened based on the keys present in the boxes
+    """Function checks if all boxes can be
+    opened based on the keys present in the boxes
     """
     # holder for keys
     holder = dict()
