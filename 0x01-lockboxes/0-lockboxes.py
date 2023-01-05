@@ -9,6 +9,8 @@ def canUnlockAll(boxes):
     count = 0
     if len(boxes) == 0:
         return False
+    if len(boxes) == 1:
+        return True
 
     for box in boxes:
         if len(box) > 1:
@@ -22,6 +24,8 @@ def canUnlockAll(boxes):
                 val = box[0]
                 holder[val] = count
         count += 1
+    if holder == {}:
+        return False
     for j in range(len(boxes) - 1):
         if j > 0 and j not in holder:
             return False
