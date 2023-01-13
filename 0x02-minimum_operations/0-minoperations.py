@@ -5,7 +5,7 @@
 
 
 def minOperations(n):
-    """minimum operations required 
+    """minimum operations required
     """
     d = n // 2
     while d > 0:
