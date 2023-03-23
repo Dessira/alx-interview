@@ -23,7 +23,7 @@ def isWinner(x, nums):
     sieve[0] = sieve[1] = False
     c = 0
     for i in range(len(sieve)):
-[O        if sieve[i]:
+        if sieve[i]:
             c += 1
         sieve[i] = c
 
