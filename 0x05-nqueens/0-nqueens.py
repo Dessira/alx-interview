@@ -1,43 +1,20 @@
 #!/usr/bin/python3
-'''
-Module that solves the N Queens puzzle
-'''
-from sys import argv, exit
+"""
+N non-attacking queens on an N×N chessboard
+Print every solution to the problem, one-per-line
+"""
 
-if __name__ == "__main__":
-    if len(argv) != 2:
-        print('Usage: nqueens N')
-        exit(1)
-    try:
-        n = int(argv[1])
-    except BaseException:
-        print('N must be a number')
-        exit(1)
-    if n < 4:
-        print('N must be at least 4')
-        exit(1)
+import sys
 
-    solution = []
 
-    def solve_queens(row, n, solution):
-        if (row == n):
-            print(solution)
-        else:
-            for col in range(n):
-                placement = [row, col]
-                if valid_placement(solution, placement):
-                    solution.append(placement)
-                    solve_queens(row + 1, n, solution)
-                    solution.remove(placement)
-
-    def valid_placement(solution, placement):
-        for queen in solution:
-            if queen[1] == placement[1]:
-                return False
-            if (queen[0] + queen[1]) == (placement[0] + placement[1]):
-                return False
-            if (queen[0] - queen[1]) == (placement[0] - placement[1]):
-                return False
-        return True
-
-    solve_queens(0, n, solution)
+def n_queens(n, row, result):
+    if row == n:
+        print(result)
+    else:
+        for col in range(n):
+            if all(c != col and
+                   r + c != row + col and
+                   r - c != row - col for r, c in result):
+                result.append([row, col])
+                n_queens(n, row + 1, result)
+                result.remove([row, col])
